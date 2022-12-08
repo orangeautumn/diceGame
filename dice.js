@@ -62,14 +62,29 @@ const processIterations = (numberOfIteration, countMap, totalCombineScore) => {
 
 const numerOfDice = 2;
 let numberOfIteration = 100;
-
 let totalCombineScore = 0;
 const countMap = new Map();
+
+const startTime = new Date();
 
 processIterations(numberOfIteration, countMap, totalCombineScore);
 const sortedMap = new Map([...countMap].sort());
 
+console.log(
+  "Number of simulations was " +
+    numberOfIteration +
+    " using " +
+    numerOfDice +
+    " dice."
+);
 sortedMap.forEach((value, key) => {
   const percentage = Math.floor((totalScore / value) * 100);
   console.log("Total " + key + " occurred " + value + " times");
 });
+
+const endTime = new Date();
+
+console.log(
+  " Total simulation took ",
+  (endTime.getTime() - startTime.getTime()) / 1000 + " seconds "
+);
