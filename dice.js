@@ -42,7 +42,6 @@ const processDiceList = (diceList, countMap, totalCombineScore) => {
   }
 
   totalCombineScore += totalScore;
-  // console.log("totalScore" , totalScore);
 };
 
 // process iterations based on the user input
@@ -78,8 +77,11 @@ console.log(
     " dice."
 );
 sortedMap.forEach((value, key) => {
-  const percentage = Math.floor((totalScore / value) * 100);
-  console.log("Total " + key + " occurred " + value + " times");
+  const percentage = Math.round((totalScore / key) * 100) / 100;
+
+  console.log(
+    "Total " + key + " occurs " + percentage + " occurred " + value + " times"
+  );
 });
 
 const endTime = new Date();
